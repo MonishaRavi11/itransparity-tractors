@@ -1,0 +1,54 @@
+<sly data-sly-use.list="com.itransparity.tractors.core.models.TractorListModel">
+    <style>
+        .tractor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:24px;background:#f7f8fc;}
+        @media(max-width:1024px){.tractor-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:600px){.tractor-grid{grid-template-columns:1fr;padding:12px;}.header-bar{padding:16px !important;}.footer-grid{grid-template-columns:1fr !important; gap:20px !important; padding:24px 16px !important;}}
+    </style>
+
+    <!-- HEADER - BIG CENTERED LOGO -->
+    <div class="header-bar" style="background:white; box-shadow:0 2px 12px rgba(0,0,0,0.08); padding:20px 32px; display:flex; justify-content:center; align-items:center; gap:16px;">
+        <img src="/content/dam/itransparity-tractors/ilogo-1.png" style="height:72px; width:auto;"/>
+        <span style="font-size:28px; font-weight:800; color:#002a6e;">iTransparity <span style="color:#0066cc;">Tractors</span></span>
+    </div>
+
+    <!-- BANNER -->
+    <div style="background:linear-gradient(135deg,#002a6e 0%,#0052cc 100%); color:white; padding:28px 32px; text-align:center;">
+        <h1 style="margin:0; font-size:26px;">Powerful Machines for Every Farm</h1>
+        <p style="margin:6px 0 0 0; opacity:0.9; font-size:14px;">Explore our latest tractor models</p>
+    </div>
+
+    <!-- TRACTOR CARDS -->
+    <div class="tractor-grid">
+        <sly data-sly-list.tractor="${list.tractors}">
+            <div style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 18px rgba(0,0,0,0.06);">
+                <div style="background:#f8fafd; height:240px; display:flex; align-items:center; justify-content:center; padding:16px;">
+                    <img src="${tractor.image}" style="width:100%; height:100%; object-fit:contain;"/>
+                </div>
+                <div style="padding:20px; text-align:center;">
+                    <h3 style="margin:0;">${tractor.modelName}</h3>
+                    <p style="color:#6b7a94; font-size:13px; min-height:32px;">${tractor.shortDescription @ context='html'}</p>
+                    <a href="${tractor.detailPagePath}.html" style="background:#0066cc; color:#fff; padding:10px 22px; border-radius:8px; text-decoration:none; font-weight:600; font-size:13px; display:inline-block; margin-top:12px;">Know More →</a>
+                </div>
+            </div>
+        </sly>
+    </div>
+
+    <!-- STORE FINDER - THIS WAS MISSING -->
+    <div style="padding:32px 24px; background:white; display:flex; justify-content:center;">
+        <div style="width:100%; max-width:700px;">
+            <div data-sly-resource="${'store_finder' @ resourceType='itransparity-tractors/components/store-finder'}"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER - FULL CONTENT -->
+    <div style="background:#0c1a32; color:#8a9bb8;">
+        <div class="footer-grid" style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; padding:40px 32px; max-width:1200px; margin:0 auto;">
+            <div><div style="display:flex; align-items:center; gap:10px; color:white; font-weight:700;"><img src="/content/dam/itransparity-tractors/ilogo-1.png" style="height:28px; background:white; border-radius:5px; padding:3px;"/> iTransparity Tractors</div><p style="font-size:12px; margin-top:12px; line-height:1.6;">Powerful tractors since 1998. Building machines for every farm.</p></div>
+            <div><h4 style="color:white; font-size:12px; margin:0 0 10px 0;">PRODUCTS</h4><div style="font-size:12px; line-height:2;">Alpha 450<br/>Beta 550<br/>Gamma 650</div></div>
+            <div><h4 style="color:white; font-size:12px; margin:0 0 10px 0;">COMPANY</h4><div style="font-size:12px; line-height:2;">About Us<br/>Dealers<br/>Careers<br/>Contact</div></div>
+            <div><h4 style="color:white; font-size:12px; margin:0 0 10px 0;">CONTACT</h4><p style="font-size:12px; margin:0; line-height:1.6;">345 Park Avenue<br/>San Jose, CA 95110<br/>+1-800-TRACTOR</p></div>
+        </div>
+        <div style="border-top:1px solid #1c2f52; padding:14px; text-align:center; font-size:11px;">© 2026 iTransparity Tractors. All Rights Reserved.</div>
+    </div>
+
+</sly>

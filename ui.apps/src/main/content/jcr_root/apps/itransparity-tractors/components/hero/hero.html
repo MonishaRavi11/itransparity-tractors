@@ -1,0 +1,6 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='itransparity-tractors.site'}"></sly>
+<div class="tractor-hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${properties.fileReference @ context='uri'}'); background-size:cover; padding:100px 40px; color:white; text-align:center; border-radius:12px;">
+    <h1 style="font-size:48px; margin:0;">${properties.headline || 'Powering Farms Worldwide'}</h1>
+    <p style="font-size:18px; margin:15px 0;">${properties.subtext || 'Trusted tractors for every field'}</p>
+    <a href="${properties.ctaLink || '#'}" style="background:#2e7d32; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; display:inline-block; margin-top:15px;">${properties.ctaText || 'Explore Tractors'}</a>
+</div>

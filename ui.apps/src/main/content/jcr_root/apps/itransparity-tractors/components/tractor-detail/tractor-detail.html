@@ -1,0 +1,29 @@
+<sly data-sly-use.model="com.itransparity.tractors.core.models.TractorDetailModel">
+    <style>.cmp-navigation, .cmp-breadcrumb, header nav{display:none !important;}</style>
+    <div style="font-family:Arial;background:#f8f9fa;padding:0;">
+        <div style="background:white;box-shadow:0 2px 8px rgba(0,0,0,0.08);padding:15px 30px;">
+            <a href="/content/itransparity-tractors/us/en.html" style="color:#004990;text-decoration:none;font-weight:600;">← Back to All Tractors</a>
+            <span style="float:right;color:#666;">${model.modelname}</span>
+        </div>
+
+        <div style="max-width:1100px;margin:30px auto;background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);display:flex;flex-wrap:wrap;">
+            <div style="flex:1;min-width:400px;background:#f3f6f9;padding:30px;display:flex;align-items:center;justify-content:center;min-height:350px;">
+                <img src="${model.tractorimage}" alt="${model.modelname}" style="width:100%;max-width:450px;height:auto;object-fit:contain;display:block;" data-sly-test="${model.tractorimage}"/>
+                <div data-sly-test="${!model.tractorimage}" style="color:#888;">Image not set - Check tractorimage property</div>
+            </div>
+            <div style="flex:1;min-width:400px;padding:40px;">
+                <div style="display:inline-block;background:#e3f0ff;color:#004990;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:15px;">${model.enginetype}</div>
+                <h1 style="margin:0 0 10px 0;font-size:32px;">${model.modelname}</h1>
+                <p style="color:#666;">${model.shortdescription @ context='html'}</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:20px 0;">
+                    <div style="background:#f8f9fa;padding:15px;border-radius:8px;border-left:4px solid #004990;"><div style="font-size:12px;color:#888;">HORSE POWER</div><div style="font-size:20px;font-weight:700;color:#004990;">${model.hp} HP</div></div>
+                    <div style="background:#f8f9fa;padding:15px;border-radius:8px;border-left:4px solid #28a745;"><div style="font-size:12px;color:#888;">WEIGHT</div><div style="font-size:20px;font-weight:700;">${model.weight} kg</div></div>
+                    <div style="background:#f8f9fa;padding:15px;border-radius:8px;border-left:4px solid #ffc107;"><div style="font-size:12px;color:#888;">FUEL TANK</div><div style="font-size:20px;font-weight:700;">${model.fullcapacity} L</div></div>
+                    <div style="background:#f8f9fa;padding:15px;border-radius:8px;border-left:4px solid #dc3545;"><div style="font-size:12px;color:#888;">ENGINE</div><div style="font-size:14px;font-weight:600;">${model.enginetype}</div></div>
+                </div>
+                <h3 style="border-bottom:2px solid #004990;padding-bottom:8px;display:inline-block;">Full Description</h3>
+                <div style="color:#444;line-height:1.7;margin-top:15px;">${model.longdescription @ context='html'}</div>
+            </div>
+        </div>
+    </div>
+</sly>
